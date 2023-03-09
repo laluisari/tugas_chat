@@ -4,6 +4,10 @@ class MessagesController < ApplicationController
         render json: Message.all
     end
 
+    def show
+      message = Message.where(user_id: params[:id])
+      render json: message
+    end
 
         def create 
             msg = Message.new(message_params)
@@ -12,6 +16,21 @@ class MessagesController < ApplicationController
             else
               render json: msg.errors, status: :unprocessable_entity
             end
+        end
+
+        def update
+          msg = Message.find(params[:id])
+          if msg.update(message_params)
+            render json: ["berhasil di edit", msg]
+          else
+            render json: msg.errors, status: :unprocessable_entity
+          end
+        end
+
+        def destroy
+          msg = Message.find(params[:id])
+          msg.destroy
+          render json: "berhasil di hapus"
         end
           
           private 

@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     def update
         user = User.find(params[:id])
         if user.update(user_params)
-            render json: user
+            render json: ["berhasil di edit", user]
         else
             render json: user.errors, status: :unprocessable_entity
         end
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-       params.permit(:nama)
+       params.permit(:nama, :password)
     end
 
 end
