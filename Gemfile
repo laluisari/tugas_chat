@@ -5,7 +5,11 @@ ruby "3.1.2"
 
 gem 'rails_admin', '~> 3.0'
 
-gem 'bcrypt'
+gem 'bcrypt', '~> 3.1.7'
+
+gem 'jwt'
+
+gem 'dotenv-rails'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
@@ -79,3 +83,13 @@ group :test do
 end
 
 gem "sassc-rails"
+
+gem "pry"
+
+gem 'rspec-rails'
+
+gem 'factory_bot_rails'
+
+gem 'faker'
+
+gem 'invitation'
